@@ -1,8 +1,47 @@
 <html>
   <head>
     <title>RICARDAHAEHN.com</title>
+    <style>
+
+      body {
+        background: black;
+        color: white;
+        font-style: italic;
+        font-size: 20px;
+      }
+      
+      .main {
+          /*border: 1px solid #f00;*/
+          height: 100%;
+          width: 100%;
+          position: relative
+      }
+      .contentWrapper {
+          display: table;
+          width: 100%;
+          height: 100%;
+          *height: auto;
+          *position: absolute;
+          *top: 50%;
+      }
+      .content {
+          display: table-cell;
+          text-align: center;
+          vertical-align: middle;
+          *position: relative;
+          *top: -50%;
+      }
+
+    </style>
   </head>
-  <body bgColor='black'>
-    
+  <body>
+    <!-- <img src='logo.png' width=400px> -->
+
+    <div class="main">
+        <div class="contentWrapper">
+            <div class="content">ricardahaehn.com</div>
+        </div>           
+    </div>
+
   </body>
 </html>

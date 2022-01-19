@@ -1,61 +1,53 @@
+<!DOCTYPE html>
 <html>
-  <head>
-    <title>RICARDAHAEHN.com</title>
-    <style>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
 
-      body {
-        background: black;
-        color: white;
-        
-        font-size: 20px;
-        letter-spacing: 0.6;
+body {
+  margin: 0;
+  font-family: Arial;
+  font-size: 17px;
+  overflow: hidden;
+  background: rgb(0,0,0);
+}
+.video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+.video-container > video {
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+@media screen and (max-aspect-ratio: 1920/1080) {
+  .video-container > video {
+    height: 100%;
+  }
+}
+@media screen and (min-aspect-ratio: 1920/1080) {
+  .video-container > video {
+    width: 100%;
+  }
+}
 
-        background-attachment: fixed;
-        background-image: url(clips.gif);
-        background-repeat: no-repeat;
-        background-position: center center;
-      }
-      
-
-
-
-      .main {
-          /*border: 1px solid #f00;*/
-          height: 100%;
-          width: 100%;
-          position: relative
-      }
-      .contentWrapper {
-          display: table;
-          width: 100%;
-          height: 100%;
-          *height: auto;
-          *position: absolute;
-          *top: 50%;
-      }
-      .content {
-          display: table-cell;
-          text-align: center;
-          vertical-align: middle;
-          *position: relative;
-          *top: -50%;
-      }
-      a {
-        color: white;
-        text-decoration: none;
-        /*font-family: sans-serif;*/
-        /*font-style: italic;*/
-      }
-
-    </style>
-  </head>
-  <body>
-
-    <div class="main">
-        <div class="contentWrapper">
-            <div class="content"><a href="mailto:hello@ricardahaehn.com">hello@ricardahaehn.com</a></div>
-        </div>           
-    </div>
-
-  </body>
+</style>
+</head>
+<body>
+<div class="video_container">
+<a href="mailto:hello@ricardahaehn.com"><video autoplay muted loop id="myVideo">
+  <source src="vid.mp4" type="video/mp4">
+  Your browser does not support HTML5 video.
+</video></a>
+</div>
+</body>
 </html>

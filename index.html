@@ -17,7 +17,7 @@ body {
   overflow: hidden;
 }
 
-#mission-statement {
+#container {
   overflow: hidden;
   position: fixed;
   height: 100%;
@@ -26,7 +26,7 @@ body {
   left: 0;
 }
 
-video#bgvid {
+video#coolstuff {
   height: 100vh;
   width: 100vw;
   object-fit: cover;
@@ -34,17 +34,84 @@ video#bgvid {
   position: absolute;
   bottom: 0;
   right: 0;
+  min-height:100%
+}
+
+#muted {
+  position:absolute;
+  top:10px;
+  right:10px;
+  z-index: 1000;
+  width: 32px;
+  cursor: pointer;
+}
+
+#loud {
+  position:absolute;
+  top:10px;
+  right:10px;
+  z-index: 1000;
+  width: 32px;
+  display: none;
+  cursor: pointer;
+}
+
+#info {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  background-color: rgba(0,0,0,0.8);
+  z-index: 500;
+  color:white;
+  font-family: sans-serif;
+  padding-top: 40%;
 }
 
 </style>
+<script type="text/javascript">
+  
+  function SOUNDON() {
+    document.getElementById("coolstuff").muted = false;
+    document.getElementById("muted").style.display = 'none';
+    document.getElementById("loud").style.display = 'block';
+  }
+
+  function SOUNDOFF() {
+    document.getElementById("coolstuff").muted = true;
+    document.getElementById("muted").style.display = 'block';
+    document.getElementById("loud").style.display = 'none';
+  }
+
+  function showinfo() {
+    document.getElementById("info").style.display = 'block';
+  }
+
+  function hideinfo() {
+    document.getElementById("info").style.display = 'none';
+  }
+
+</script>
 </head>
 <body>
 
-
-<div class="mission-statement">
-  <a href="mailto:hello@ricardahaehn.com"><video style="min-height:100%" playsinline autoplay muted loop id="bgvid">
+<div class="container" onclick="showinfo();">
+  <video playsinline autoplay muted loop id="coolstuff">
         <source src="edm.mp4" type="video/mp4">
-    </video></a>
+    </video>
+</div>
+
+<img src='mute.png' id='muted' onclick="SOUNDON();">
+<img src='loud.png' id='loud' onclick="SOUNDOFF();">
+
+<div id="info" onclick="hideinfo();">
+
+  <center>
+  RICARDA HAEHN IS A...
+  </center>
+
 </div>
 
 </body>

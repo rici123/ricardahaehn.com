@@ -36,7 +36,7 @@ a:hover {
   left: 0;
 }
 
-video#coolstuff {
+video {
   height: 100vh;
   width: 100vw;
   object-fit: cover;
@@ -101,11 +101,18 @@ video#coolstuff {
   display: none;
 }
 
+#coolstuffphone{
+  display: none;
+}
 
 @media screen and (max-width: 600px) {
 
-    #rotate {
+    #coolstuffphone {
       display: inline-block;
+    }
+
+    #coolstuff {
+      display: none;
     }
 
 }
@@ -116,12 +123,14 @@ video#coolstuff {
   
   function SOUNDON() {
     document.getElementById("coolstuff").muted = false;
+    document.getElementById("coolstuffphone").muted = false;
     document.getElementById("muted").style.display = 'none';
     document.getElementById("loud").style.display = 'block';
   }
 
   function SOUNDOFF() {
     document.getElementById("coolstuff").muted = true;
+    document.getElementById("coolstuffphone").muted = true;
     document.getElementById("muted").style.display = 'block';
     document.getElementById("loud").style.display = 'none';
   }
@@ -141,6 +150,9 @@ video#coolstuff {
 <div class="container" onclick="showinfo();">
   <video playsinline autoplay muted loop id="coolstuff">
         <source src="edm.mp4" type="video/mp4">
+    </video>
+  <video playsinline autoplay muted loop id="coolstuffphone">
+        <source src="phone.mp4" type="video/mp4">
     </video>
 </div>
 
@@ -163,8 +175,6 @@ video#coolstuff {
 
 
 </div>
-
-<img src='rotatescreen.gif' id='rotate'>
 
 
 </body>

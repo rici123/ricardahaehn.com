@@ -78,8 +78,37 @@ video#coolstuff {
   color:white;
   font-family: oswald, Futura, Futura-Medium, "Futura Medium", "Century Gothic", CenturyGothic, "Apple Gothic", AppleGothic, "URW Gothic L", "Avant Garde", sans-serif;
   font-weight: 1000;
-  padding-top: 150px;
 }
+
+#text {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+#rotate {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  opacity: 0.5;
+  display: none;
+}
+
+
+@media screen and (max-width: 600px) {
+
+    #rotate {
+      display: inline-block;
+    }
+    
+}
+
 
 </style>
 <script type="text/javascript">
@@ -119,19 +148,23 @@ video#coolstuff {
 
 <div id="info" onclick="hideinfo();">
 
-  <center>
-  <div>
-  RICARDA HAEHN IS A DIRECTOR BASED IN THE FUTURE
-  <br><br>  <br><br>
-  <a href="mailto:HELLO@RICARDAHAEHN.COM" target="_blank">EMAIL</a><br>
-  <a href="https://vimeo.com/ricardahaehn" target="_blank">VIMEO</a><br>
-  <a href="https://www.instagram.com/ricardahaehn" target="_blank">INSTAGRAM</a>
-  <br><br>  <br><br>
-  <a href="https://open.spotify.com/playlist/5Wx8RtQDxPYDmx2CpADWEB?si=LtU6uFYmTnmaCSFtZuusmQ" target="_blank"><img src="hot.jpeg" style="width:100px;"></a>
-
+  <div id='text'>
+    <center>
+    RICARDA HAEHN IS A DIRECTOR BASED IN THE FUTURE
+    <br><br>  
+    <a href="mailto:HELLO@RICARDAHAEHN.COM" target="_blank">EMAIL</a><br>
+    <a href="https://vimeo.com/ricardahaehn" target="_blank">VIMEO</a><br>
+    <a href="https://www.instagram.com/ricardahaehn" target="_blank">INSTAGRAM</a>
+    <br><br> 
+    <a href="https://open.spotify.com/playlist/5Wx8RtQDxPYDmx2CpADWEB?si=LtU6uFYmTnmaCSFtZuusmQ" target="_blank"><img src="hot.jpeg" style="width:100px;"></a>
   </center>
+  </div> 
+
 
 </div>
+
+<img src='rotatescreen.gif' id='rotate'>
+
 
 </body>
 </html>

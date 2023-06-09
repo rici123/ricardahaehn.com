@@ -47,6 +47,14 @@ video {
   min-height:100%
 }
 
+#coolstuff {
+  z-index: 300;
+}
+
+#coolstuffphone {
+  z-index: 0;
+}
+
 #muted {
   position:absolute;
   top:10px;
@@ -101,20 +109,16 @@ video {
   display: none;
 }
 
-#coolstuffphone{
-  display: none;
-}
 
 @media screen and (max-width: 600px) {
 
     #coolstuffphone {
-      display: inline-block;
+      z-index: 300;
     }
 
     #coolstuff {
-      display: none;
+      z-index: 0;
     }
-
 }
 
 
@@ -123,14 +127,14 @@ video {
   
   function SOUNDON() {
     document.getElementById("coolstuff").muted = false;
-    document.getElementById("coolstuffphone").muted = false;
+    // document.getElementById("coolstuffphone").muted = false;
     document.getElementById("muted").style.display = 'none';
     document.getElementById("loud").style.display = 'block';
   }
 
   function SOUNDOFF() {
     document.getElementById("coolstuff").muted = true;
-    document.getElementById("coolstuffphone").muted = true;
+    // document.getElementById("coolstuffphone").muted = true;
     document.getElementById("muted").style.display = 'block';
     document.getElementById("loud").style.display = 'none';
   }

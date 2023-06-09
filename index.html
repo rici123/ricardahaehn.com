@@ -127,15 +127,26 @@ video {
 </style>
 <script type="text/javascript">
   
+  window.onload = function() {
+
+    if (window.document.body.clientWidth < 600) {
+
+      document.getElementById('coolstuff').style.display = 'none';
+      console.log('small screen');
+
+    }
+
+  }
+
   function SOUNDON() {
-    document.getElementById("coolstuff").muted = false;
+    document.getElementById("coolstuffphone").muted = false;
     // document.getElementById("coolstuffphone").muted = false;
     document.getElementById("muted").style.display = 'none';
     document.getElementById("loud").style.display = 'block';
   }
 
   function SOUNDOFF() {
-    document.getElementById("coolstuff").muted = true;
+    document.getElementById("coolstuffphone").muted = true;
     // document.getElementById("coolstuffphone").muted = true;
     document.getElementById("muted").style.display = 'block';
     document.getElementById("loud").style.display = 'none';

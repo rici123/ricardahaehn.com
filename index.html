@@ -126,6 +126,37 @@ video {
     }
 }
 
+#pwenter {
+      height: 30px;
+    margin-left: 10px;
+    vertical-align: bottom;
+      background: black;
+    border: solid thin white;
+    color: hotpink;
+}
+
+#pwbtn {
+      height: 30px;
+    margin-left: 2px;
+    vertical-align: bottom;
+      background: black;
+    border: solid thin white;
+    color: white;
+    width:40px;
+    cursor: pointer;
+}
+
+#pwbtn:hover {
+  background: white;
+  color: black;
+  border: solid thin black;
+}
+
+#download:hover {
+  text-decoration: underline;
+}
+
+
 
 </style>
 <script type="text/javascript">
@@ -140,6 +171,28 @@ video {
   //   }
 
   // }
+
+  window.onload = function() {
+
+    document.getElementById('download').onclick = letsgo;
+    document.getElementById('pwenter').onclick =  function(e) {
+      e.stopPropagation();
+    };
+
+    document.getElementById('pwenter').onkeyup =  function(e) {
+
+      console.log(e)
+
+      if (e.key == 'Enter') {
+
+      download();
+      hideinfo();
+
+      }
+
+    };
+
+  }
 
   function SOUNDON() {
     document.getElementById("coolstuffphone").muted = false;
@@ -156,11 +209,33 @@ video {
   }
 
   function showinfo() {
+
+    document.getElementById('download').style.display = 'inline';
+    document.getElementById('pw').style.display = 'none';
     document.getElementById("info").style.display = 'block';
   }
 
   function hideinfo() {
+
+
     document.getElementById("info").style.display = 'none';
+  }
+
+  function letsgo(e) {
+
+    e.stopPropagation();
+
+    document.getElementById('download').style.display = 'none';
+    document.getElementById('pw').style.display = 'inline';
+    document.getElementById('pwenter').focus();
+
+  }
+
+  function download() {
+
+    window.open('https://mega:'+document.getElementById('pwenter').value
++'@fly.cs.umb.edu/secure/2023_RICARDAHAEHN_CREATIVEDIRECTOR_00.pdf');
+
   }
 
 </script>
@@ -191,8 +266,8 @@ video {
     <a href="https://www.instagram.com/ricardahaehn" target="_blank">INSTAGRAM</a>
     <br><br> 
     <a href="https://open.spotify.com/playlist/5Wx8RtQDxPYDmx2CpADWEB?si=LtU6uFYmTnmaCSFtZuusmQ" target="_blank"><img src="hot.jpeg" style="width:100px;"></a>
-    <br><br>
-    <a href="https://fly.cs.umb.edu/secure/2023_RICARDAHAEHN_CREATIVEDIRECTOR_00.pdf" target="_blank">DOWNLOAD PORTFOLIO</a>
+    <br><br><br>
+    <span id='download' style='cursor: pointer;'>DOWNLOAD PORTFOLIO</span><span id='pw' style='display:none'><input type='text' id='pwenter' placeholder="Enter Password"><button id='pwbtn' onclick='download()'>OK</button></span>
   </center>
   </div> 
 

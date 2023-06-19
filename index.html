@@ -233,8 +233,20 @@ video {
 
   function download() {
 
-    window.open('https://mega:'+document.getElementById('pwenter').value
-+'@fly.cs.umb.edu/secure/2023_RICARDAHAEHN_CREATIVEDIRECTOR_00.pdf');
+    url = 'https://user666:'+document.getElementById('pwenter').value
++'@fly.cs.umb.edu/secure/2023_RICARDAHAEHN_CREATIVEDIRECTOR_00.zip';
+
+    console.log(url);
+
+    window.open(url, '_blank');
+
+    // var link = document.createElement('a');
+
+    // link.href = url;
+
+    // link.download = 'file.pdf';
+
+    // link.dispatchEvent(new MouseEvent('click'));
 
   }
 

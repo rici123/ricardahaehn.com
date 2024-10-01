@@ -216,12 +216,21 @@ video {
     document.getElementById('download').style.display = 'inline';
     document.getElementById('pw').style.display = 'none';
     document.getElementById("info").style.display = 'block';
+
+    document.getElementById("coolstuff").pause();
+    document.getElementById("coolstuffphone").pause();
+
   }
 
   function hideinfo() {
 
 
     document.getElementById("info").style.display = 'none';
+
+
+    document.getElementById("coolstuff").play();
+    document.getElementById("coolstuffphone").play();
+
   }
 
   function letsgo(e) {

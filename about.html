@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>About — Ricarda Haehn</title>
+
+  <style>
+    html, body{
+      margin:0;
+      padding:0;
+      background:#fff;
+      color:#000;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* shared text style */
+    :root{
+      --font-size: 12px; /* SAME everywhere */
+      --letter-spacing: 0.02em;
+      --font-family: "Iowan Old Style","Palatino Linotype",Palatino,"Times New Roman",serif;
+    }
+
+    /* contact, upper-left */
+    .contact{
+      position: fixed;
+      top: 6px;
+      left: 6px;
+      font-size: var(--font-size);
+      letter-spacing: var(--letter-spacing);
+      line-height: 1;
+      font-family: var(--font-family);
+      opacity: 0.9;
+      user-select: none;
+    }
+
+    .contact a{
+      color:#000;
+      text-decoration:none;
+    }
+
+    .contact a:hover{
+      text-decoration: underline;
+    }
+
+    /* content aligned to same left axis */
+    .wrap{
+      padding-top: 56px;
+      padding-left: 6px;   /* SAME as contact */
+      padding-right: 40px;
+      max-width: 640px;
+    }
+
+    .text{
+      font-size: var(--font-size);
+      letter-spacing: var(--letter-spacing);
+      line-height: 1.45;
+      font-family: var(--font-family);
+    }
+
+    .back{
+      margin-top: 18px;
+      font-size: var(--font-size);
+      letter-spacing: var(--letter-spacing);
+      font-family: var(--font-family);
+    }
+
+    .back a{
+      color:#000;
+      text-decoration:none;
+      opacity: 0.7;
+    }
+
+    .back a:hover{
+      text-decoration: underline;
+      opacity: 1;
+    }
+  </style>
+</head>
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+<body>
+  <div class="contact">
+    <a href="mailto:contact@ricardahaehn.com">contact@ricardahaehn.com</a>
+  </div>
+
+  <div class="wrap">
+    <div class="text">
+      Ricarda Haehn is a photographer and director. Selected work with Universal Music Group, Vogue Germany, Sleek Magazine, Sony Music, Stay High, Kasia Kucharska, 6pm, Universal Urban, Four Music, Highsnobiety, ABC Dinamo.
+    </div>
+
+    <div class="back">
+      <a href="index.html">back</a>
+    </div>
+  </div>
+</body>
+</html>

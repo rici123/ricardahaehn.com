@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ricarda Haehn</title>
+  <link rel="icon" href="favicon.png" />
+
+  <style>
+    html, body{
+      margin:0;
+      width:100%;
+      height:100%;
+      background:#000;
+      overflow:hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    :root{
+      --font-size: 12px;
+      --letter-spacing: 0.02em;
+      --font-family: "Iowan Old Style","Palatino Linotype",Palatino,"Times New Roman",serif;
+    }
+
+    /* top navigation */
+    .nav{
+      position: fixed;
+      top: 6px;
+      left: 6px;
+      right: 6px;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      pointer-events: none;
+    }
+
+    .nav a{
+      font-size: var(--font-size);
+      letter-spacing: var(--letter-spacing);
+      line-height: 1;
+      font-family: var(--font-family);
+      color:#fff;
+      text-decoration:none;
+      opacity: 0.95;
+      mix-blend-mode: difference;
+      pointer-events: auto;
+      user-select: none;
+    }
+
+    .nav a:hover{
+      text-decoration: underline;
+    }
+
+    /* fullscreen stage */
+    .stage{
+      position: fixed;
+      inset: 0;
+      width:100vw;
+      height:100vh;
+      background:#000;
+      cursor:default;
+    }
+
+    .stage img,
+    .stage video{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      display:block;
+      object-fit: cover;   /* cinematic, no gaps */
+      object-position: center;
+      background:#000;
+    }
+
+    /* subtle fade */
+    .media{
+      opacity:0;
+      transition: opacity 220ms ease;
+    }
+
+    .media.show{
+      opacity:1;
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      .media{ transition:none; }
+    }
+  </style>
+</head>
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+<body>
+  <div class="nav">
+    <a href="mailto:contact@ricardahaehn.com">contact@ricardahaehn.com</a>
+    <a href="about.html">about</a>
+  </div>
+
+  <div id="stage" class="stage"></div>
+
+  <script>
+    const MEDIA_PATH = "media/";
+
+    const IMAGES = [
+      "ricardahaehn.com-01.jpg",
+      "ricardahaehn.com-02.jpg",
+      "ricardahaehn.com-03.jpg",
+      "ricardahaehn.com-04.jpg",
+      "ricardahaehn.com-05.jpg",
+      "ricardahaehn.com-06.jpg",
+      "ricardahaehn.com-07.jpg",
+      "ricardahaehn.com-08.jpg",
+      "ricardahaehn.com-09.png",
+      "ricardahaehn.com-10.jpg",
+      "ricardahaehn.com-11.jpg",
+      "ricardahaehn.com-12.jpg",
+      "ricardahaehn.com-13.jpg",
+      "ricardahaehn.com-14.jpg",
+      "ricardahaehn.com-15.jpg",
+      "ricardahaehn.com-16.jpg",
+      "ricardahaehn.com-17.jpg",
+      "ricardahaehn.com-18.jpg",
+      "ricardahaehn.com-19.jpg",
+      "ricardahaehn.com-20.jpg",
+      "ricardahaehn.com-21.jpg",
+      "ricardahaehn.com-22.jpg",
+      "ricardahaehn.com-23.jpg",
+      "ricardahaehn.com-24.jpg",
+      "ricardahaehn.com-25.jpg",
+      "ricardahaehn.com-26.jpg",
+      "ricardahaehn.com-27.jpg"
+    ];
+
+    const VIDEOS = [
+      "ricardahaehn.com-r01.mp4",
+      "ricardahaehn.com-r02.mp4",
+      "ricardahaehn.com-r03.mp4",
+      "ricardahaehn.com-r04.mp4",
+      "ricardahaehn.com-r05.mp4",
+      "ricardahaehn.com-r06.mp4",
+      "ricardahaehn.com-r07.mp4",
+      "ricardahaehn.com-r08.mp4"
+    ];
+
+    const ITEMS = [
+      ...IMAGES.map(src => ({ type: "img", src: MEDIA_PATH + src })),
+      ...VIDEOS.map(src => ({ type: "video", src: MEDIA_PATH + src }))
+    ];
+
+    const stage = document.getElementById("stage");
+    let currentIndex = -1;
+
+    function randomIndex(exclude){
+      if (ITEMS.length <= 1) return 0;
+      let i = exclude;
+      while (i === exclude){
+        i = Math.floor(Math.random() * ITEMS.length);
+      }
+      return i;
+    }
+
+    function clearStage(){
+      const v = stage.querySelector("video");
+      if (v){
+        try { v.pause(); } catch(e){}
+        v.src = "";
+        v.load();
+      }
+      stage.innerHTML = "";
+    }
+
+    function showItem(index){
+      const item = ITEMS[index];
+      clearStage();
+
+      let el;
+      if (item.type === "img"){
+        el = document.createElement("img");
+        el.src = item.src;
+        el.alt = "";
+        el.decoding = "async";
+      } else {
+        el = document.createElement("video");
+        el.src = item.src;
+        el.muted = true;
+        el.loop = true;
+        el.autoplay = true;
+        el.playsInline = true;
+        el.setAttribute("webkit-playsinline", "true");
+        el.preload = "auto";
+        el.controls = false;
+
+        el.addEventListener("canplay", () => {
+          el.play().catch(() => {});
+        }, { once:true });
+      }
+
+      el.className = "media";
+      stage.appendChild(el);
+      requestAnimationFrame(() => el.classList.add("show"));
+    }
+
+    function next(){
+      currentIndex = randomIndex(currentIndex);
+      showItem(currentIndex);
+    }
+
+    stage.addEventListener("click", next);
+
+    window.addEventListener("keydown", (e) => {
+      if (e.key === " " || e.key === "Enter" || e.key === "ArrowRight"){
+        next();
+      }
+    });
+
+    // initial load
+    next();
+  </script>
+</body>
+</html>

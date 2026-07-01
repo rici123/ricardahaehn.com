@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ricarda Haehn</title>
+  <link rel="icon" href="favicon.png" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+
+  <style>
+    html, body{
+      margin:0;
+      width:100%;
+      height:100%;
+      background:#000;
+      overflow:hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    :root{
+      --font-size: 12px;
+      --letter-spacing: 0.02em;
+      --font-family: "Iowan Old Style","Palatino Linotype",Palatino,"Times New Roman",serif;
+    }
+
+    /* top navigation */
+    .nav{
+      position: fixed;
+      top: 6px;
+      left: 6px;
+      right: 6px;
+      z-index: 10;
+      display: flex;
+      justify-content: flex-end;
+      pointer-events: none;
+    }
+
+    .nav a,
+    .center-text{
+      font-size: var(--font-size);
+      letter-spacing: var(--letter-spacing);
+      line-height: 1;
+      font-family: var(--font-family);
+      color:#fff;
+      opacity: 0.95;
+      mix-blend-mode: difference;
+      user-select: none;
+    }
+
+    .nav a{
+      text-decoration:none;
+      pointer-events: auto;
+    }
+
+    .nav a:hover{
+      text-decoration: underline;
+    }
+
+    /* fullscreen background */
+    .stage{
+      position: fixed;
+      inset: 0;
+      width:100vw;
+      height:100vh;
+      background:#000;
+      cursor:default;
+    }
+
+    .stage img{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      display:block;
+      object-fit: cover;
+      object-position: center;
+      background:#000;
+    }
+
+    .center-text{
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      z-index: 10;
+      transform: translate(-50%, -50%);
+      font-style: italic;
+      
+      color: #fff;
+      opacity: 1;
+
+      mix-blend-mode: normal;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="nav">
+    <a href="contact.html">contact</a>
+  </div>
+
+  <div class="stage">
+    <img src="media/ricardahaehn.com-03.jpg" alt="" decoding="async" />
+  </div>
+
+  <div class="center-text">R03 - work in progress</div>
+</body>
+</html>
